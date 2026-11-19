@@ -1639,6 +1639,312 @@ textarea.contact_input{
     to{ opacity: 1; scale: none; }
 }
 
+/*============ FEATURED PRODUCT (SELLIVRE) ==========*/
+/* Self-contained dark emerald card in Sellivre's brand colors, so it reads the same in light and dark theme. */
+.featured{
+    padding-top: 1rem;
+}
+
+.featured_card{
+    --fp-accent: #34d399;
+    --fp-accent-soft: #6ee7b7;
+    --fp-text: hsla(150, 25%, 88%, .78);
+    --fp-line: hsla(150, 40%, 75%, .14);
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    gap: 2rem;
+    overflow: hidden;
+    padding: 2rem 1.5rem 0;
+    border-radius: 1.75rem;
+    border: 1px solid var(--fp-line);
+    color: var(--fp-text);
+    background:
+        radial-gradient(110% 70% at 100% 0%, hsla(155, 75%, 38%, .38), transparent 60%),
+        radial-gradient(80% 55% at 0% 100%, hsla(162, 80%, 42%, .16), transparent 65%),
+        linear-gradient(160deg, #0d2f22 0%, #08190f 55%, #061009 100%);
+    box-shadow: 0 30px 60px -28px rgba(4, 30, 20, .65);
+}
+
+/* faint grid texture, faded toward the edges */
+.featured_card::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--fp-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--fp-line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: .35;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 70%);
+            mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 70%);
+}
+
+.featured_badge{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .35rem .85rem;
+    border-radius: 2rem;
+    border: 1px solid hsla(155, 70%, 60%, .25);
+    background-color: hsla(155, 70%, 50%, .1);
+    color: var(--fp-accent-soft);
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-medium);
+    letter-spacing: .02em;
+}
+
+.featured_badge-dot{
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: var(--fp-accent);
+    animation: featured-pulse 2.4s ease-out infinite;
+}
+
+@keyframes featured-pulse{
+    0%{ box-shadow: 0 0 0 0 hsla(155, 70%, 55%, .6); }
+    70%, 100%{ box-shadow: 0 0 0 .5rem hsla(155, 70%, 55%, 0); }
+}
+
+.featured_title{
+    margin: 1rem 0 .25rem;
+    color: #fff;
+    font-size: var(--big-font-size);
+    font-weight: var(--font-semi-bold);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+.featured_tagline{
+    margin-bottom: var(--mb-1);
+    color: var(--fp-accent-soft);
+    font-weight: var(--font-medium);
+}
+
+.featured_description{
+    margin-bottom: var(--mb-1-5);
+    line-height: 1.7;
+}
+
+.featured_list{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: var(--mb-1-5);
+}
+
+.featured_item{
+    display: flex;
+    align-items: flex-start;
+    gap: .85rem;
+    font-size: var(--small-font-size);
+    line-height: 1.55;
+}
+
+.featured_item strong{
+    display: block;
+    margin-bottom: .1rem;
+    color: #fff;
+    font-weight: var(--font-semi-bold);
+}
+
+.featured_item-icon{
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: .8rem;
+    border: 1px solid hsla(155, 70%, 60%, .2);
+    background: linear-gradient(135deg, hsla(155, 70%, 45%, .28), hsla(155, 70%, 45%, .06));
+}
+
+.featured_item-icon svg{
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: var(--fp-accent-soft);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.featured_tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.featured_tags li{
+    padding: .3rem .8rem;
+    border-radius: 2rem;
+    border: 1px solid var(--fp-line);
+    background-color: hsla(0, 0%, 100%, .03);
+    font-size: var(--smaller-font-size);
+}
+
+.featured_actions{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem 1.25rem;
+    margin-top: var(--mb-2);
+}
+
+.featured_button,
+.featured_button:hover{
+    background-color: var(--fp-accent);
+    background-image: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
+    color: #042417;
+    font-weight: var(--font-semi-bold);
+}
+
+.featured_button{
+    box-shadow: 0 10px 24px -10px hsla(155, 75%, 50%, .65);
+}
+
+.featured_button:hover{
+    box-shadow: 0 16px 30px -12px hsla(155, 75%, 50%, .85);
+}
+
+.featured_note{
+    font-size: var(--smaller-font-size);
+    color: hsla(150, 25%, 88%, .6);
+}
+
+/* Phones rise out of the bottom edge of the card and are cropped by it */
+.featured_media{
+    position: relative;
+    height: 330px;
+    margin: 0 -1.5rem;
+}
+
+.featured_glow{
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    width: 120%;
+    height: 90%;
+    translate: -50% 0;
+    background: radial-gradient(closest-side, hsla(155, 80%, 45%, .45), transparent);
+    pointer-events: none;
+}
+
+.featured_phone{
+    position: absolute;
+    top: 1.5rem;
+    width: min(46%, 175px);
+    filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .5));
+    transition: translate .6s var(--ease-out), rotate .6s var(--ease-out);
+}
+
+.featured_phone--front{
+    left: calc(50% - min(44%, 168px));
+    rotate: -5deg;
+    z-index: 1;
+}
+
+.featured_phone--back{
+    left: 50%;
+    top: 3.25rem;
+    rotate: 6deg;
+}
+
+.featured_card:hover .featured_phone--front{
+    translate: 0 -10px;
+    rotate: -3deg;
+}
+
+.featured_card:hover .featured_phone--back{
+    translate: 0 -6px;
+    rotate: 8deg;
+}
+
+body.dark-theme .featured_card{
+    --fp-line: hsla(150, 40%, 75%, .18);
+    box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .8);
+}
+
+@media screen and (min-width: 568px){
+    .featured_card{
+        padding: 2.5rem 2.5rem 0;
+    }
+    .featured_list{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 1.5rem;
+    }
+    .featured_media{
+        height: 380px;
+        margin: 0 -2.5rem;
+    }
+    .featured_phone{
+        width: 200px;
+    }
+    .featured_phone--front{
+        left: calc(50% - 190px);
+    }
+}
+
+@media screen and (min-width: 768px){
+    .featured{
+        padding-top: 3rem;
+    }
+    .featured_card{
+        grid-template-columns: 1fr 300px;
+        gap: 1.5rem;
+        padding: 3rem 0 0 3rem;
+    }
+    .featured_data{
+        padding-bottom: 3rem;
+    }
+    .featured_list{
+        grid-template-columns: 1fr;
+    }
+    .featured_media{
+        height: auto;
+        margin: 0;
+    }
+    .featured_phone{
+        width: 200px;
+        top: auto;
+        bottom: -5rem;
+    }
+    .featured_phone--front{
+        left: -.75rem;
+    }
+    .featured_phone--back{
+        left: 7.5rem;
+        bottom: -8rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .featured_container{
+        max-width: 1000px;
+    }
+    .featured_card{
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+        padding: 3.5rem 0 0 3.5rem;
+    }
+    .featured_data{
+        padding-bottom: 3.5rem;
+    }
+    .featured_list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .featured_phone{
+        width: 245px;
+    }
+    .featured_phone--front{
+        left: -.5rem;
+    }
+    .featured_phone--back{
+        left: 9.25rem;
+    }
+}
+
 /*============ MEDIA QUERIES ==========*/
 /*for small devices*/
 @media screen and (max-width: 350px){
