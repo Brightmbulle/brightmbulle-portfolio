@@ -5,12 +5,13 @@ import { cpSync, rmSync, mkdirSync, readdirSync, statSync } from 'node:fs'
 import { join, extname } from 'node:path'
 
 const OUT = 'dist'
-const ROOT_FILES = ['index.html', '404.html', '_headers']
-const ASSET_DIRS = ['assets/css', 'assets/js', 'assets/fonts', 'assets/img', 'assets/pdf']
+const ROOT_FILES = ['index.html', '404.html', '_headers', 'favicon.ico']
+const ASSET_DIRS = ['assets/css', 'assets/js', 'assets/fonts', 'assets/img', 'assets/icons', 'assets/pdf']
 
 // Source images the page never loads (it uses the .webp versions).
 const SKIP_EXT = new Set(['.svg', '.png', '.jpg', '.jpeg'])
 const KEEP = new Set(['assets/img/profile-cutout.png']) // PNG fallback for the hero portrait
+const SKIP_FILES = new Set(['assets/icons/icon-source.png']) // full-size favicon master
 
 rmSync(OUT, { recursive: true, force: true })
 mkdirSync(OUT)
@@ -22,7 +23,7 @@ for (const dir of ASSET_DIRS) {
     for (const name of readdirSync(dir)) {
         const path = `${dir}/${name}`
         const skip = dir === 'assets/img' && SKIP_EXT.has(extname(name).toLowerCase()) && !KEEP.has(path)
-        if (skip) continue
+        if (skip || SKIP_FILES.has(path)) continue
         cpSync(path, join(OUT, path))
         count++
         bytes += statSync(path).size
