@@ -1227,6 +1227,8 @@ body.dark-theme .project_bg{
 .project_img{
     width: 232px;
     justify-self: center;
+    /* the photo is cropped at the knees: sit it on the card's bottom edge */
+    margin-bottom: -3rem;
 }
 
 
@@ -2205,6 +2207,10 @@ body.dark-theme .featured_card{
     }
     .project_data{
         padding-top: .8rem;
+    }
+    .project_img{
+        margin-bottom: 0;
+        align-self: end;
     }
 
     .footer_container{

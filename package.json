@@ -1,0 +1,13 @@
+{
+  "name": "brightmbulle",
+  "private": true,
+  "description": "Portfolio of Bright Mbulle, hosted on Cloudflare Pages.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler pages dev",
+    "deploy": "npm run build && wrangler pages deploy --branch main"
+  },
+  "devDependencies": {
+    "wrangler": "4.167.0"
+  }
+}
