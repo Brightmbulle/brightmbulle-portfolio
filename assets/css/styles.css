@@ -1516,22 +1516,6 @@ textarea.contact_input{
     color: var(--text-color-light);
     margin-top: var(--mb-3);
 }
-
-/* Flaticon attribution (required by the free icon license), kept quiet */
-.footer_credit{
-    margin-top: var(--mb-0-5);
-    text-align: center;
-    font-size: .688rem;
-}
-.footer_credit a{
-    color: var(--text-color-light);
-    opacity: .75;
-    transition: opacity .3s, color .3s;
-}
-.footer_credit a:hover{
-    color: var(--first-color);
-    opacity: 1;
-}
 .footer_title,
 .footer_subtitle,
 .footer_link,
