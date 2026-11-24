@@ -1,0 +1,16 @@
+// Cloudflare Workers config: serves this folder as a static site.
+// Live at https://brightmbulle.<account-subdomain>.workers.dev
+// Deploy with: npm run deploy
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "brightmbulle",
+    "compatibility_date": "2026-11-24",
+    "assets": {
+        // The repo root is the site. Files that must not be uploaded are listed in .assetsignore.
+        "directory": "./",
+        // Unknown paths get 404.html with a real 404 status.
+        "not_found_handling": "404-page"
+    },
+    "workers_dev": true,
+    "preview_urls": false
+}
