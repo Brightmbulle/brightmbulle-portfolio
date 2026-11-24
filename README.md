@@ -14,9 +14,19 @@ npm run dev        # builds dist/ and serves it at http://localhost:8788
 
 ## Deploy
 
+Merging into `main` deploys automatically: the GitHub Actions workflow in
+`.github/workflows/deploy.yml` builds `dist/` and uploads it to the `brightmbulle`
+Pages project. Progress shows in the repo's **Actions** tab, where you can also
+re-run a deploy by hand (**Deploy to Cloudflare Pages** → **Run workflow**).
+
+The workflow needs a repository secret `CLOUDFLARE_API_TOKEN` (a Cloudflare API token
+with *Account → Cloudflare Pages → Edit*) and a repository variable `CLOUDFLARE_ACCOUNT_ID`.
+
+To deploy straight from your computer instead:
+
 ```bash
 npx wrangler login # first time only
-npm run deploy     # builds dist/ and uploads it to the "brightmbulle" Pages project
+npm run deploy
 ```
 
 ## How the hosting is set up
